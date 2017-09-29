@@ -1,29 +1,32 @@
 package com.atuldwivedi.learn.hibernate.crud;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import com.atuldwivedi.learn.hibernate.domain.Student;
 
-public class CreateStudent {
+public class RetrieveStudent {
+
 	public static void main(String[] args) {
+
 		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml")
 				.addAnnotatedClass(Student.class).buildSessionFactory();
 
 		Session session = sessionFactory.getCurrentSession();
 
-		Student student = new Student("Atul Dwivedi", "contact@atuldwivedi.com", "9110460027", "Bengaluru");
-
 		try {
 			session.beginTransaction();
 
-			session.save(student);
+			Student student = session.get(Student.class, 1l);
+			System.out.println(student);
 
 			session.getTransaction().commit();
 		} finally {
 			sessionFactory.close();
 		}
-
 	}
+
 }

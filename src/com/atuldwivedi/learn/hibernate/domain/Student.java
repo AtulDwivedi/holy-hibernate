@@ -2,16 +2,22 @@ package com.atuldwivedi.learn.hibernate.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "hfw_student")
+@SequenceGenerator(name = "ID",  sequenceName = "ROLL_NUMBER_SEQ",
+allocationSize = 1, schema = "PUBLIC")
 public class Student {
 
 	@Id
+	@GeneratedValue(generator = "ID", strategy = GenerationType.SEQUENCE)
 	@Column(name = "roll_number")
-	private int rollNumber;
+	private long rollNumber;
 
 	@Column(name = "name")
 	private String name;
@@ -30,20 +36,19 @@ public class Student {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Student(int rollNumber, String name, String email, String mobile, String address) {
+	public Student(String name, String email, String mobile, String address) {
 		super();
-		this.rollNumber = rollNumber;
 		this.name = name;
 		this.email = email;
 		this.mobile = mobile;
 		this.address = address;
 	}
 
-	public int getRollNumber() {
+	public long getRollNumber() {
 		return rollNumber;
 	}
 
-	public void setRollNumber(int rollNumber) {
+	public void setRollNumber(long rollNumber) {
 		this.rollNumber = rollNumber;
 	}
 
