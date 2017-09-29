@@ -6,35 +6,83 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="student")
+@Table(name = "hfw_student")
 public class Student {
-	
+
 	@Id
-	@Column(name="student_id")
-	private int studentId;
-	
-	@Column(name="student_name")
-	private String studentName;
+	@Column(name = "roll_number")
+	private int rollNumber;
 
-	public int getStudentId() {
-		return studentId;
+	@Column(name = "name")
+	private String name;
+
+	@Column(name = "email")
+	private String email;
+
+	@Column(name = "mobile")
+	private String mobile;
+
+	@Column(name = "address")
+	private String address;
+
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setStudentId(int studentId) {
-		this.studentId = studentId;
+	public Student(int rollNumber, String name, String email, String mobile, String address) {
+		super();
+		this.rollNumber = rollNumber;
+		this.name = name;
+		this.email = email;
+		this.mobile = mobile;
+		this.address = address;
 	}
 
-	public String getStudentName() {
-		return studentName;
+	public int getRollNumber() {
+		return rollNumber;
 	}
 
-	public void setStudentName(String studentName) {
-		this.studentName = studentName;
+	public void setRollNumber(int rollNumber) {
+		this.rollNumber = rollNumber;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	@Override
 	public String toString() {
-		return "Student [studentId=" + studentId + ", studentName=" + studentName + "]";
+		return "Student [rollNumber=" + rollNumber + ", name=" + name + ", email=" + email + ", mobile=" + mobile
+				+ ", address=" + address + "]";
 	}
 
 }

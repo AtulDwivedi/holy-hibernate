@@ -1,6 +1,4 @@
-package com.atuldwivedi.learn.hibernate;
-
-import java.util.List;
+package com.atuldwivedi.learn.hibernate.crud;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,25 +6,24 @@ import org.hibernate.cfg.Configuration;
 
 import com.atuldwivedi.learn.hibernate.domain.Student;
 
-public class QueryStudent {
-
+public class CreateStudent {
 	public static void main(String[] args) {
-
 		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml")
 				.addAnnotatedClass(Student.class).buildSessionFactory();
 
 		Session session = sessionFactory.getCurrentSession();
 
+		Student student = new Student(1001, "Atul Dwivedi", "contact@atuldwivedi.com", "9110460027", "Bengaluru");
+
 		try {
 			session.beginTransaction();
 
-			List<Student> students = session.createQuery("from Student").getResultList();
-			System.out.println(students);
+			session.save(student);
 
 			session.getTransaction().commit();
 		} finally {
 			sessionFactory.close();
 		}
-	}
 
+	}
 }
