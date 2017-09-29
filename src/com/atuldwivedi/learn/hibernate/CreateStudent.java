@@ -6,7 +6,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.atuldwivedi.learn.hibernate.domain.Student;
 
-public class StudentCreate {
+public class CreateStudent {
 	public static void main(String[] args) {
 		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml")
 				.addAnnotatedClass(Student.class).buildSessionFactory();
