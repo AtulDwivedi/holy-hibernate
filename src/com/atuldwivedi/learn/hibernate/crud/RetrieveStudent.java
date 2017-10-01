@@ -6,8 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.atuldwivedi.learn.hibernate.domain.Student;
-
 public class RetrieveStudent {
 
 	public static void main(String[] args) {
@@ -20,7 +18,7 @@ public class RetrieveStudent {
 		try {
 			session.beginTransaction();
 
-			Student student = session.get(Student.class, 1l);
+			Student student = session.get(Student.class, 1001l);
 			System.out.println(student);
 
 			session.getTransaction().commit();

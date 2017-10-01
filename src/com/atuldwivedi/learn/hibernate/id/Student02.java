@@ -1,4 +1,4 @@
-package com.atuldwivedi.learn.hibernate.domain;
+package com.atuldwivedi.learn.hibernate.id;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,12 +10,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "hfw_student")
-@SequenceGenerator(name = "ID",  sequenceName = "ROLL_NUMBER_SEQ",
+@SequenceGenerator(name = "rollNumber",  sequenceName = "ROLL_NUMBER_SEQ",
 allocationSize = 1, schema = "PUBLIC")
-public class Student {
+public class Student02 {
 
 	@Id
-	@GeneratedValue(generator = "ID", strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(generator = "rollNumber", strategy = GenerationType.SEQUENCE)
 	@Column(name = "roll_number")
 	private long rollNumber;
 
@@ -31,12 +31,12 @@ public class Student {
 	@Column(name = "address")
 	private String address;
 
-	public Student() {
+	public Student02() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Student(String name, String email, String mobile, String address) {
+	public Student02(String name, String email, String mobile, String address) {
 		super();
 		this.name = name;
 		this.email = email;
