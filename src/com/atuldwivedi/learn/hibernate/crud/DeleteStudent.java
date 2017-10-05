@@ -17,7 +17,9 @@ public class DeleteStudent {
 			// deleting one record
 			Session session = sessionFactory.getCurrentSession();
 			session.beginTransaction();
+			// fetch the student object
 			Student std = session.get(Student.class, 1001l);
+			// delete the student object
 			session.delete(std);
 			session.getTransaction().commit();
 			session.close();

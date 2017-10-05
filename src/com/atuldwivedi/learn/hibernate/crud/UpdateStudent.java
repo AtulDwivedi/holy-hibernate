@@ -17,7 +17,9 @@ public class UpdateStudent {
 			// updating one record
 			Session session = sessionFactory.getCurrentSession();
 			session.beginTransaction();
+			// fetch the student
 			Student std = session.get(Student.class, 1001l);
+			// change the desired value
 			std.setName("Atul Mukesh Dwivedi");
 			session.getTransaction().commit();
 			session.close();
@@ -32,7 +34,8 @@ public class UpdateStudent {
 			// updating selected records
 			Session session3 = sessionFactory.getCurrentSession();
 			session3.beginTransaction();
-			session3.createQuery("update Student set email = 'contact2@gmail.com' where name = 'Atul Mukesh Dwivedi'")
+			session3.createQuery("update Student set email = 'contact2@gmail.com' "
+					+ "where name = 'Atul Mukesh Dwivedi'")
 					.executeUpdate();
 			session3.getTransaction().commit();
 			session3.close();

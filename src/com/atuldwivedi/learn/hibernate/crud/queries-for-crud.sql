@@ -7,4 +7,14 @@ CREATE TABLE HFW_STUDENT
 	 MOBILE					VARCHAR(10),
 	 ADDRESS				VARCHAR(200));
 	 
+CREATE TABLE HFW_STUDENT 
+  ( 
+     ROLL_NUMBER NUMBER(10), 
+     NAME        VARCHAR(50) NOT NULL, 
+     EMAIL       VARCHAR(50), 
+     MOBILE      VARCHAR(10), 
+     ADDRESS     VARCHAR(200), 
+     PRIMARY KEY(ROLL_NUMBER) 
+  ); 
+	 
 INSERT INTO HFW_STUDENT VALUES(1000, 'Atul Dwivedi', 'contact@atuldwivedi.com', '9110460027', 'Bengaluru');

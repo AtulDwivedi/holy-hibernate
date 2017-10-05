@@ -18,7 +18,9 @@ public class RetrieveStudent {
 		try {
 			session.beginTransaction();
 
+			// retrieve the student object using primary key
 			Student student = session.get(Student.class, 1001l);
+			
 			System.out.println(student);
 
 			session.getTransaction().commit();

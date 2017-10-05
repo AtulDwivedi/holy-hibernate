@@ -23,16 +23,25 @@ public class QueryStudent {
 			System.out.println(studentsList1);
 			
 			
-			List<Student> studentsList2 = session.createQuery("from Student s where s.name = 'Atul'").getResultList();
+			List<Student> studentsList2 = session.createQuery("from Student s where s.name = 'Atul'")
+													.getResultList();
+			
 			System.out.println("\nFetched students using where clause");
 			System.out.println(studentsList2);
 			
 			
-			List<Student> studentsList3 = session.createQuery("from Student s where s.name = 'Atul' AND s.address = 'Bangalore'").getResultList();
+			List<Student> studentsList3 = session.createQuery("from Student s "
+					+ "where s.name = 'Atul' "
+					+ "AND s.address = 'Bangalore'")
+					.getResultList();
+			
 			System.out.println("\nFetched students using where clause and predicate AND");
 			System.out.println(studentsList3);
 			
-			List<Student> studentsList4 = session.createQuery("from Student s where s.email LIKE '%@atuldwivedi.com'").getResultList();
+			List<Student> studentsList4 = session.createQuery("from Student s "
+					+ "where s.email LIKE '%@atuldwivedi.com'")
+					.getResultList();
+			
 			System.out.println("\nFetched students using LIKE");
 			System.out.println(studentsList4);
 			
