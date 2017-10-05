@@ -14,3 +14,9 @@ CREATE TABLE HFW_STUDENT
 	 ADDRESS				VARCHAR(200));
 	 
 INSERT INTO HFW_STUDENT VALUES(1000, 'Atul Dwivedi', 'contact@atuldwivedi.com', '9110460027', 'Bengaluru');
+
+/**
+ * H2
+ * To see the definition of the table
+ */
+SHOW COLUMNS FROM HFW_ONETOONE_UNI.HFW_ONETOONE_TRAINER;
