@@ -17,7 +17,7 @@ public class TestOneToOneUniDirectionalMapping {
 
 		try {
 			saveTrainer();
-			getTriner();
+			getTrainer();
 			deleteTrainer();
 
 			 getTrainerDetail();
@@ -33,7 +33,7 @@ public class TestOneToOneUniDirectionalMapping {
 
 	public static void saveTrainer() {
 		Trainer trainer = new Trainer("Atul Dwivedi", "9110460027");
-		TrainerDetail trainerDetail = new TrainerDetail("atul.wnw@gmail.com", "adwivedi");
+		TrainerDetail trainerDetail = new TrainerDetail("atul.wnw@gmail.com", "www.atuldwivedi.com");
 		trainer.setTrainerDetail(trainerDetail);
 
 		session = sessionFactory.getCurrentSession();
@@ -43,10 +43,10 @@ public class TestOneToOneUniDirectionalMapping {
 
 	}
 
-	public static void getTriner() {
+	public static void getTrainer() {
 		session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
-		Trainer trainer = session.get(Trainer.class, 2l);
+		Trainer trainer = session.get(Trainer.class, 1l);
 		System.out.println("\n" + trainer);
 		session.getTransaction().commit();
 
@@ -69,7 +69,7 @@ public class TestOneToOneUniDirectionalMapping {
 		session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		// this will not fetch associated trainer
-		TrainerDetail trainerDetail = session.get(TrainerDetail.class, 1l);
+		TrainerDetail trainerDetail = session.get(TrainerDetail.class, 2l);
 		System.out.println("\n" + trainerDetail);
 		session.getTransaction().commit();
 	}
@@ -77,7 +77,7 @@ public class TestOneToOneUniDirectionalMapping {
 	public static void deleteTrainerDetail() {
 		session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
-		TrainerDetail trainerDetail = session.get(TrainerDetail.class, 1l);
+		TrainerDetail trainerDetail = session.get(TrainerDetail.class, 2l);
 		System.out.println("\n" + trainerDetail);
 
 		if (trainerDetail != null) {
