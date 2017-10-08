@@ -18,11 +18,26 @@ public class TestOneToManyUniDirectionalMapping {
 				.addAnnotatedClass(Assignment.class).buildSessionFactory();
 		session = sessionFactory.getCurrentSession();
 
-//		saveCourse();
+		saveCourse();
 
-//		getCourse();
+		getCourse();
 		
 		deleteCourse();
+		
+		getAllCourses();
+	}
+
+	private static void getAllCourses() {
+
+		try {
+			session.beginTransaction();
+			List<Course> courses = session.createQuery("from Course").getResultList();
+			System.out.println(courses);
+			session.getTransaction().commit();
+		} finally {
+			session.close();
+			sessionFactory.close();
+		}
 	}
 
 	private static void saveCourse() {
@@ -39,7 +54,7 @@ public class TestOneToManyUniDirectionalMapping {
 			assignemnts.add(assign02);
 
 			// create course
-			Course course = new Course("Java Frameworks", assignemnts);
+			Course course = new Course("Java Frameworks2", assignemnts);
 
 			// save the course
 			long coursePk = (long) session.save(course);
@@ -68,7 +83,6 @@ public class TestOneToManyUniDirectionalMapping {
 	}
 	
 private static void deleteCourse() {
-
 
 	try {
 		session.beginTransaction();

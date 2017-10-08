@@ -16,13 +16,13 @@ public class TestOneToOneBiDirectionalMapping {
 				.addAnnotatedClass(TrainerDetail.class).buildSessionFactory();
 
 		try {
-			// saveTrainer();
-			// getTriner();
-			// deleteTriner();
-			// deleteAll();
-			//
+			saveTrainer();
+			getTriner();
+			deleteTriner();
+			deleteAll();
+
 			getTrinerDetail();
-			// deleteTrinerDetail();
+			deleteTrinerDetail();
 		} finally {
 			session.close();
 			sessionFactory.close();
@@ -52,11 +52,10 @@ public class TestOneToOneBiDirectionalMapping {
 		session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		TrainerDetail trainerDetail = session.get(TrainerDetail.class, 2l);
-		if (trainerDetail != null){
-		System.out.println("\n" + trainerDetail);
-		System.out.println("\n" + trainerDetail.getTrainer());
-		}
-		else{
+		if (trainerDetail != null) {
+			System.out.println("\n" + trainerDetail);
+			System.out.println("\n" + trainerDetail.getTrainer());
+		} else {
 			System.out.println("\n No trainder detail found.");
 		}
 		session.getTransaction().commit();

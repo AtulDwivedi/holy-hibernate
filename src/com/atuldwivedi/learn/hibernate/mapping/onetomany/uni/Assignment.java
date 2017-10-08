@@ -21,12 +21,10 @@ public class Assignment {
 
 	public Assignment() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Assignment(String description) {
 		super();
-		this.id = id;
 		this.description = description;
 	}
 

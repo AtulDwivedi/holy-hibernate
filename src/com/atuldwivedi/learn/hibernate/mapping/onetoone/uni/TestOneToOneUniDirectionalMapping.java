@@ -20,9 +20,9 @@ public class TestOneToOneUniDirectionalMapping {
 			getTrainer();
 			deleteTrainer();
 
-			 getTrainerDetail();
-			 deleteTrainerDetail();
-			
+			getTrainerDetail();
+			deleteTrainerDetail();
+
 			deleteAllTrainers();
 		} finally {
 			session.close();
