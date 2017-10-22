@@ -17,12 +17,13 @@ public class TestOneToOneBiDirectionalMapping {
 
 		try {
 			saveTrainer();
-			getTriner();
-			deleteTriner();
-			deleteAll();
-
-			getTrinerDetail();
-			deleteTrinerDetail();
+//			getTriner();
+//			deleteTriner();
+//			deleteAll();
+//
+//			saveTrainerDetail();
+//			getTrinerDetail();
+//			deleteTrinerDetail();
 		} finally {
 			session.close();
 			sessionFactory.close();
@@ -36,6 +37,17 @@ public class TestOneToOneBiDirectionalMapping {
 		session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		session.save(trainer);
+		session.getTransaction().commit();
+	}
+	
+	public static void saveTrainerDetail() {
+		Trainer trainer = new Trainer("Atul Dwivedi", "9110460027");
+		TrainerDetail trainerDetail = new TrainerDetail("atul.wnw@gmail.com", "adwivedi");
+		trainerDetail.setTrainer(trainer);
+		trainer.setTrainerDetail(trainerDetail);
+		session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		session.save(trainerDetail);
 		session.getTransaction().commit();
 	}
 
