@@ -1,4 +1,4 @@
-package com.atuldwivedi.learn.hibernate.mapping.manytoone;
+package com.atuldwivedi.learn.hibernate.association.manytoone;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
