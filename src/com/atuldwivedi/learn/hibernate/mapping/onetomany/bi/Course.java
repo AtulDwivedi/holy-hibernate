@@ -31,7 +31,7 @@ public class Course {
 		super();
 	}
 
-	public Course(String title, List<Assignment> assignments) {
+	public Course(String title) {
 		super();
 		this.title = title;
 		this.assignments = assignments;

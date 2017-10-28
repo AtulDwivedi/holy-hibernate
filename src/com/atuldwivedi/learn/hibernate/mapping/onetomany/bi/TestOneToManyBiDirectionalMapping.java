@@ -49,18 +49,22 @@ public class TestOneToManyBiDirectionalMapping {
 			Assignment assign01 = new Assignment("Write code for login flow.");
 			Assignment assign02 = new Assignment("Write code to take input from user and save in database.");
 
-			List<Assignment> assignemnts = new ArrayList<Assignment>();
-			assignemnts.add(assign01);
-			assignemnts.add(assign02);
+			List<Assignment> assignments = new ArrayList<Assignment>();
+			assignments.add(assign01);
+			assignments.add(assign02);
 
 			// create course
-			Course course = new Course("Java Frameworks1", assignemnts);
+			Course course = new Course("Java Frameworks1");
 			
 			assign01.setCourse(course);
 			assign02.setCourse(course);
+			
+//			course.setAssignments(assignments);
 
 			// save the course
 			long coursePk = (long) session.save(course);
+			session.save(assign01);
+			session.save(assign02);
 			System.out.println(coursePk);
 
 			session.getTransaction().commit();
