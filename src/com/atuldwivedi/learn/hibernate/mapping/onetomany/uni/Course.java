@@ -25,7 +25,7 @@ public class Course {
 	@Column(name = "title")
 	private String title;
 
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="course_id")
 	private List<Assignment> assignments;
 

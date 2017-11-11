@@ -1,5 +1,6 @@
 package com.atuldwivedi.learn.hibernate.mapping.onetomany.bi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -23,8 +24,7 @@ public class Course {
 	@Column(name = "title")
 	private String title;
 
-	@OneToMany(mappedBy = "course", cascade = { CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE,
-			CascadeType.REFRESH })
+	@OneToMany(mappedBy = "course", cascade = { CascadeType.ALL})
 	private List<Assignment> assignments;
 
 	public Course() {
@@ -59,6 +59,15 @@ public class Course {
 
 	public void setAssignments(List<Assignment> assignments) {
 		this.assignments = assignments;
+	}
+	
+	public void addAssignment(Assignment assignment){
+		if(assignments == null){
+			assignments = new ArrayList<Assignment>();
+		}
+		
+		assignment.setCourse(this);
+		assignments.add(assignment);
 	}
 
 	@Override

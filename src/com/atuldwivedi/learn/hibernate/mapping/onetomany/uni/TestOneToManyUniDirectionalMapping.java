@@ -16,87 +16,67 @@ public class TestOneToManyUniDirectionalMapping {
 	public static void main(String[] args) {
 		sessionFactory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Course.class)
 				.addAnnotatedClass(Assignment.class).buildSessionFactory();
-		session = sessionFactory.getCurrentSession();
 
-		saveCourse();
-
-		getCourse();
-		
-		deleteCourse();
-		
-		getAllCourses();
+		try {
+			saveCourse();
+			getCourse();
+			deleteCourse();
+//			getAllCourses();
+		} finally {
+			session.close();
+			sessionFactory.close();
+		}
 	}
 
 	private static void getAllCourses() {
-
-		try {
-			session.beginTransaction();
-			List<Course> courses = session.createQuery("from Course").getResultList();
-			System.out.println(courses);
-			session.getTransaction().commit();
-		} finally {
-			session.close();
-			sessionFactory.close();
-		}
+		session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		List<Course> courses = session.createQuery("from Course").getResultList();
+		System.out.println(courses);
+		session.getTransaction().commit();
 	}
 
 	private static void saveCourse() {
+		session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
 
-		try {
-			session.beginTransaction();
+		// create assignments for course
+		Assignment assign01 = new Assignment("Write code for login flow.");
+		Assignment assign02 = new Assignment("Write code to take input from user and save in database.");
 
-			// create assignments for course
-			Assignment assign01 = new Assignment("Write code for login flow.");
-			Assignment assign02 = new Assignment("Write code to take input from user and save in database.");
+		List<Assignment> assignemnts = new ArrayList<Assignment>();
+		assignemnts.add(assign01);
+		assignemnts.add(assign02);
 
-			List<Assignment> assignemnts = new ArrayList<Assignment>();
-			assignemnts.add(assign01);
-			assignemnts.add(assign02);
+		// create course
+		Course course = new Course("Java Framework", assignemnts);
 
-			// create course
-			Course course = new Course("Java Frameworks2", assignemnts);
+		// save the course
+		long coursePk = (long) session.save(course);
+		System.out.println(coursePk);
 
-			// save the course
-			long coursePk = (long) session.save(course);
-			System.out.println(coursePk);
-
-			session.getTransaction().commit();
-		} finally {
-			session.close();
-			sessionFactory.close();
-		}
+		session.getTransaction().commit();
 	}
 
 	private static void getCourse() {
-
-		try {
-			session.beginTransaction();
-
-			Course course = session.get(Course.class, 1l);
-			System.out.println(course);
-			
-			session.getTransaction().commit();
-		} finally {
-			session.close();
-			sessionFactory.close();
-		}
-	}
-	
-private static void deleteCourse() {
-
-	try {
+		session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 
-		Course course = session.get(Course.class, 3l);
+		Course course = session.get(Course.class, 1l);
 		System.out.println(course);
-		
-		session.delete(course);
-		
+
 		session.getTransaction().commit();
-	} finally {
-		session.close();
-		sessionFactory.close();
 	}
 
+	private static void deleteCourse() {
+		session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+
+		Course course = session.get(Course.class, 1l);
+		System.out.println(course);
+
+		session.delete(course);
+
+		session.getTransaction().commit();
 	}
 }
