@@ -18,8 +18,8 @@ public class TestOneToManyUniDirectionalMapping {
 				.addAnnotatedClass(Assignment.class).buildSessionFactory();
 
 		try {
-			saveCourse();
-			getCourse();
+//			saveCourse();
+//			getCourse();
 			deleteCourse();
 //			getAllCourses();
 		} finally {
@@ -49,7 +49,7 @@ public class TestOneToManyUniDirectionalMapping {
 		assignemnts.add(assign02);
 
 		// create course
-		Course course = new Course("Java Framework", assignemnts);
+		Course course = new Course("Hibernate Framework", assignemnts);
 
 		// save the course
 		long coursePk = (long) session.save(course);
@@ -62,7 +62,7 @@ public class TestOneToManyUniDirectionalMapping {
 		session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 
-		Course course = session.get(Course.class, 1l);
+		Course course = session.get(Course.class, 2l);
 		System.out.println(course);
 
 		session.getTransaction().commit();
