@@ -22,7 +22,7 @@ public class Assignment {
 	@Column(name = "description")
 	private String description;
 
-	@ManyToOne(cascade = { CascadeType.PERSIST })
+	@ManyToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "course_id")
 	private Course course;
 

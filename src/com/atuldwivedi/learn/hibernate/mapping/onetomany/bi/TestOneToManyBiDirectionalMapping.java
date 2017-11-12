@@ -17,11 +17,12 @@ public class TestOneToManyBiDirectionalMapping {
 				.addAnnotatedClass(Assignment.class).buildSessionFactory();
 
 		try {
-			saveCourse();
-			saveAssignment();
-			getCourse();
-			deleteCourse();
-			getAllCourses();
+//			 saveCourse();
+//			 saveAssignment();
+//			 getCourse();
+//			deleteCourse();
+			deleteAssignment();
+//			 getAllCourses();
 		} finally {
 			session.close();
 			sessionFactory.close();
@@ -91,6 +92,18 @@ public class TestOneToManyBiDirectionalMapping {
 		session.getTransaction().commit();
 	}
 
+	private static void deleteAssignment() {
+		session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+
+		Assignment assignment = session.get(Assignment.class, 4l);
+		System.out.println(assignment);
+
+		session.delete(assignment);
+
+		session.getTransaction().commit();
+	}
+
 	private static void saveAssignment() {
 
 		session = sessionFactory.getCurrentSession();
@@ -102,14 +115,11 @@ public class TestOneToManyBiDirectionalMapping {
 		// create course
 		Course course = new Course("Java Framework");
 
-		// course.addAssignment(assign01);
-
+		// set course for assignment
 		assign01.setCourse(course);
 
 		// save the course
 		session.save(assign01);
-
-		// create assignments for course
 
 		session.getTransaction().commit();
 	}
