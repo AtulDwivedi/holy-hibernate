@@ -1,5 +1,6 @@
 package com.atuldwivedi.learn.hibernate.association.onetoone.bi;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -22,7 +23,7 @@ public class PhoneDetails {
 	@Column(name="technology")
 	private String technology;
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinColumn(name = "phone_id")
 	private Phone phone;
 
