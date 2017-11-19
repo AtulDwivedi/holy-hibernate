@@ -17,7 +17,8 @@ public class ManyToOneApp {
 			session = sessionFactory.getCurrentSession();
 
 			session.beginTransaction();
-			Person person = new Person();
+			
+			Person person = new Person("Atul");
 			session.save(person);
 
 			Phone phone1 = new Phone("123-456-7890");
@@ -31,9 +32,11 @@ public class ManyToOneApp {
 			session = sessionFactory.getCurrentSession();
 			session.beginTransaction();
 			Phone phone = session.get(Phone.class, 2l);
-			System.out.println("\n"+phone);
-			phone.setPerson(null);
-			session.save(phone);
+//			System.out.println("\n"+phone);
+//			phone.setPerson(null);
+//			session.save(phone);
+//			Person p = session.get(Person.class, 1l);
+			session.delete(phone);
 			session.getTransaction().commit();
 
 		} finally {

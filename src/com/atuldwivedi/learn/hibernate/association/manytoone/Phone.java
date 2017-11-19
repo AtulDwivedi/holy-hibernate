@@ -1,5 +1,6 @@
 package com.atuldwivedi.learn.hibernate.association.manytoone;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -19,8 +20,8 @@ public class Phone {
 	@Column(name = "number")
 	private String number;
 
-	@ManyToOne
-	@JoinColumn(name = "person_id", foreignKey = @ForeignKey(name = "PERSON_ID_FK"))
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name = "person_id", foreignKey = @ForeignKey(name = "HFW_MANYTOONE_PERSON_ID_FK"))
 	private Person person;
 
 	public Phone() {
