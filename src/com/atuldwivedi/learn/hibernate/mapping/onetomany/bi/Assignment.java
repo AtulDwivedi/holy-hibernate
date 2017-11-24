@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "HFW_ONETOMANY_BI.HFW_ONETOMANY_BI_ASSIGNMENT")
+@Table(name = "HFW_ONETOMANY_BI.ASSIGNMENT")
 public class Assignment {
 
 	@Id
