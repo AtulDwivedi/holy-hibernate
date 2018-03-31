@@ -1,4 +1,4 @@
-package com.atuldwivedi.learn.hibernate.id;
+package com.atuldwivedi.learn.hibernate.identifier.auto;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

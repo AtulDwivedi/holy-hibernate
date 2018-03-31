@@ -4,8 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.atuldwivedi.learn.hibernate.id.Student01;
-import com.atuldwivedi.learn.hibernate.id.Student02;
+import com.atuldwivedi.learn.hibernate.identifier.Student02;
+import com.atuldwivedi.learn.hibernate.identifier.identity.Student01;
 
 public class UpdateStudent {
 

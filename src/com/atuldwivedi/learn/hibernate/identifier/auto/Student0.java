@@ -1,4 +1,4 @@
-package com.atuldwivedi.learn.hibernate.id;
+package com.atuldwivedi.learn.hibernate.identifier.auto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,7 +31,6 @@ public class Student0 {
 
 	public Student0() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Student0(String name, String email, String mobile, String address) {
