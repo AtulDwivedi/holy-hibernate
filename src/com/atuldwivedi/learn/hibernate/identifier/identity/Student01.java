@@ -9,7 +9,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "hfw_student_01")
+@Table(name = "HFW_STUDENT_IDENTITY")
 public class Student01 {
 
 	@Id
@@ -31,7 +31,6 @@ public class Student01 {
 
 	public Student01() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Student01(String name, String email, String mobile, String address) {
