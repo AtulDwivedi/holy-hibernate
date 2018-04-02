@@ -4,10 +4,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class CreateStudent01 {
+public class StudentIdentityApp {
 	public static void main(String[] args) {
 		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml")
-				.addAnnotatedClass(Student01.class).buildSessionFactory();
+				.addAnnotatedClass(StudentIdentity.class).buildSessionFactory();
 
 		Session session = sessionFactory.getCurrentSession();
 
@@ -18,9 +18,9 @@ public class CreateStudent01 {
 			 * there is no need to provide roll number, it'll be generated
 			 * automatically as sequence number
 			 */
-			Student01 std01 = new Student01("Atul", "atul.wnw@gmail.com", "9110460027", "Bengaluru");
-			Student01 std02 = new Student01("John Rodson", "john@springframework.org", "9876543210", "New York");
-			Student01 std03 = new Student01("Martin Fowler", "martin@martinfowler.com", "9876543211", "LA");
+			StudentIdentity std01 = new StudentIdentity("Atul", "atul.wnw@gmail.com", "9110460027", "Bengaluru");
+			StudentIdentity std02 = new StudentIdentity("John Rodson", "john@springframework.org", "9876543210", "New York");
+			StudentIdentity std03 = new StudentIdentity("Martin Fowler", "martin@martinfowler.com", "9876543211", "LA");
 
 			session.save(std01);
 			session.save(std02);

@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "HFW_STUDENT_IDENTITY")
-public class Student01 {
+public class StudentIdentity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,11 +29,11 @@ public class Student01 {
 	@Column(name = "address")
 	private String address;
 
-	public Student01() {
+	public StudentIdentity() {
 		super();
 	}
 
-	public Student01(String name, String email, String mobile, String address) {
+	public StudentIdentity(String name, String email, String mobile, String address) {
 		super();
 		this.name = name;
 		this.email = email;

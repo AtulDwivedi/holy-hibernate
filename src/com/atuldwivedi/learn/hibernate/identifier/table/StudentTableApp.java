@@ -1,13 +1,13 @@
-package com.atuldwivedi.learn.hibernate.identifier.auto;
+package com.atuldwivedi.learn.hibernate.identifier.table;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class CreateStudent0 {
+public class StudentTableApp {
 	public static void main(String[] args) {
 		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml")
-				.addAnnotatedClass(Student0.class).buildSessionFactory();
+				.addAnnotatedClass(StudentTable.class).buildSessionFactory();
 
 		Session session = sessionFactory.getCurrentSession();
 
@@ -18,9 +18,9 @@ public class CreateStudent0 {
 			 * there is no need to provide roll number, it'll be generated
 			 * automatically as sequence number
 			 */
-			Student0 std01 = new Student0("Atul", "atul.wnw@gmail.com", "9110460027", "Bengaluru");
-			Student0 std02 = new Student0("John Rodson", "john@springframework.org", "9876543210", "New York");
-			Student0 std03 = new Student0("Martin Fowler", "martin@martinfowler.com", "9876543211", "LA");
+			StudentTable std01 = new StudentTable("Atul", "atul.wnw@gmail.com", "9110460027", "Bengaluru");
+			StudentTable std02 = new StudentTable("John Rodson", "john@springframework.org", "9876543210", "New York");
+			StudentTable std03 = new StudentTable("Martin Fowler", "martin@martinfowler.com", "9876543211", "LA");
 
 			session.save(std01);
 			session.save(std02);
