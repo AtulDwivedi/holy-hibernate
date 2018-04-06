@@ -14,8 +14,8 @@ import javax.persistence.TableGenerator;
 public class StudentTable {
 
 	@Id
-	@GeneratedValue(generator = "MY_GENERATOR", strategy = GenerationType.TABLE)
-	@TableGenerator(name="MY_GENERATOR", table="ID_GENERATOR", schema="PUBLIC")
+	@GeneratedValue(generator = "ROLL_NUMBER_TABLE_SEQ", strategy = GenerationType.TABLE)
+	@TableGenerator(name="ROLL_NUMBER_TABLE_SEQ", table="ID_GENERATOR", schema="PUBLIC")
 	@Column(name = "roll_number")
 	private long rollNumber;
 
