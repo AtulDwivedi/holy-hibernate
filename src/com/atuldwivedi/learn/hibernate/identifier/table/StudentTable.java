@@ -7,15 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 
 @Entity
-@Table(name = "HFW_STUDENT_SEQUENCE")
-@SequenceGenerator(name = "rollNumber",  sequenceName = "ROLL_NUMBER_SEQ",
-allocationSize = 1, schema = "PUBLIC")
+@Table(name = "HFW_STUDENT_TABLE")
 public class StudentTable {
 
 	@Id
-	@GeneratedValue(generator = "rollNumber", strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(generator = "MY_GENERATOR", strategy = GenerationType.TABLE)
+	@TableGenerator(name="MY_GENERATOR", table="ID_GENERATOR", schema="PUBLIC")
 	@Column(name = "roll_number")
 	private long rollNumber;
 
