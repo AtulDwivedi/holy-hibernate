@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 
 @Entity(name = "hfw_onetoone_bi.Phone")
 public class Phone {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

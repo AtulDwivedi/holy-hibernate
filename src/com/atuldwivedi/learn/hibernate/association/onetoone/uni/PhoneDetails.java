@@ -13,10 +13,10 @@ public class PhoneDetails {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name="provider")
+	@Column(name = "provider")
 	private String provider;
 
-	@Column(name="technology")
+	@Column(name = "technology")
 	private String technology;
 
 	public PhoneDetails() {

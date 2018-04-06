@@ -20,10 +20,10 @@ public class Demo {
 		try {
 			savePhone();
 			getPhone();
-			
+
 			updatePhoneAndDetails();
 			getPhone();
-			
+
 			deletePhone();
 			getPhone();
 		} finally {

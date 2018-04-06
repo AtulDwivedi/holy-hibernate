@@ -12,18 +12,18 @@ import javax.persistence.OneToOne;
 
 @Entity(name = "hfw_onetoone_bi.PhoneDetails")
 public class PhoneDetails {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name="provider")
+	@Column(name = "provider")
 	private String provider;
 
-	@Column(name="technology")
+	@Column(name = "technology")
 	private String technology;
 
-	@OneToOne(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "phone_id")
 	private Phone phone;
 

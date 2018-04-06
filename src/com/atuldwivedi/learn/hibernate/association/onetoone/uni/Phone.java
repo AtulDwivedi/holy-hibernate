@@ -19,7 +19,7 @@ public class Phone {
 	@Column(name = "number")
 	private String number;
 
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "details_id")
 	private PhoneDetails details;
 
@@ -37,7 +37,7 @@ public class Phone {
 	public String getNumber() {
 		return number;
 	}
-	
+
 	public void setNumber(String number) {
 		this.number = number;
 	}
