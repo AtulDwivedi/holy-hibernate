@@ -15,7 +15,7 @@ public class StudentTable {
 
 	@Id
 	@GeneratedValue(generator = "ROLL_NUMBER_TABLE_SEQ", strategy = GenerationType.TABLE)
-	@TableGenerator(name="ROLL_NUMBER_TABLE_SEQ", table="ID_GENERATOR", schema="PUBLIC")
+	@TableGenerator(name = "ROLL_NUMBER_TABLE_SEQ", table = "HFW_ID_GENERATOR", pkColumnName = "sequence_name", valueColumnName = "NEXT_VAL", pkColumnValue = "ROLL_NUMBER_TABLE_SEQ", allocationSize = 1)
 	@Column(name = "roll_number")
 	private long rollNumber;
 
