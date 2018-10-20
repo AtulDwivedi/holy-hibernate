@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity(name = "HFW_MANYTOONE.Person")
+@Entity(name = "HFW_MANYTOONE.person.sql")
 public class Person {
 
 	@Id
@@ -34,7 +34,7 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + "]";
+		return "person.sql [id=" + id + ", name=" + name + "]";
 	}
 
 	public Person(String name) {

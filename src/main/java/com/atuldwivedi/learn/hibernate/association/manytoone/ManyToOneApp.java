@@ -18,7 +18,7 @@ public class ManyToOneApp {
 
 			session.beginTransaction();
 			
-//			Person person = new Person("Atul");
+//			person.sql person = new person.sql("Atul");
 //			session.save(person);
 
 //			Phone phone1 = new Phone("127-456-7890");
@@ -38,7 +38,7 @@ public class ManyToOneApp {
 //			System.out.println("\n"+phone);
 //			phone.setPerson(null);
 //			session.save(phone);
-//			Person p = session.get(Person.class, 1l);
+//			person.sql p = session.get(person.sql.class, 1l);
 //			session.delete(phone);
 //			session.getTransaction().commit();
 
