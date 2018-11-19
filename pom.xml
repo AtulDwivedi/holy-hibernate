@@ -16,6 +16,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <hibernate-orm-version>5.3.7.Final</hibernate-orm-version>
         <h2-database-version>1.4.193</h2-database-version>
+        <ehcache-version>2.10.6</ehcache-version>
     </properties>
 
     <dependencies>
@@ -28,6 +29,16 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>${h2-database-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>${ehcache-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <version>${hibernate-orm-version}</version>
         </dependency>
     </dependencies>
 </project>
