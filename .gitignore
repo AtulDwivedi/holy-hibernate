@@ -25,3 +25,11 @@ hs_err_pid*
 .project
 .settings
 .classpath
+.idea/
+*.iml
+target/classes/.gitkeep
+target/classes/hibernate-cfg.xml
+target/generated-sources/
+target/maven-archiver/
+target/maven-status/
+target/test-classes/
